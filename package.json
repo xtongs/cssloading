@@ -1,0 +1,21 @@
+{
+  "name": "cssloading",
+  "version": "0.1.0",
+  "description": "CSS Loading",
+  "license": "MIT",
+  "contributors": [
+    "Tony Shen <xtongs@gmail.com>"
+  ],
+  "devDependencies": {
+    "browser-sync": "latest",
+    "gulp": "latest",
+    "gulp-concat": "latest",
+    "gulp-cssmin": "latest",
+    "gulp-sass": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-inline-source": "latest",
+    "gulp-plumber": "latest",
+    "gulp-rename": "latest",
+    "gulp-uglify": "latest"
+  }
+}

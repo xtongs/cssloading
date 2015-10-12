@@ -1,0 +1,8 @@
+/err.log
+/npm-debug.log
+/out.log
+/node_modules
+**/.DS_Store
+/.settings
+/wmtravel.rar
+/wmtravel.zip
