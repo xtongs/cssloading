@@ -13,19 +13,20 @@ var inlinesource = require('gulp-inline-source');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-// 合并，压缩css文件
 gulp.task('style', function() {
     gulp.src('src/*.scss')
         .pipe(sass())
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(gulp.dest('stylesheets'))
         .pipe(plumber())
-        .pipe(concat('style.min.css'))
         .pipe(cssmin())
         .pipe(gulp.dest('./'));
 });
 
-// 自动刷新浏览器
+gulp.task('reload', function() {
+    gulp.src('*.html')
+        .pipe(reload({stream:true}));
+});
+
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
@@ -46,7 +47,7 @@ gulp.task('browser-sync', function() {
 
 // 监听文件变化
 gulp.task('watch', function () {
-    gulp.watch('src/*.scss', ['style','inline']);
+    gulp.watch('src/*.scss', ['style','reload']);
 });
 
 // 默认任务
