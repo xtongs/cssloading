@@ -4,18 +4,22 @@
   "description": "CSS Loading",
   "license": "MIT",
   "contributors": [
-    "Tony Shen <xtongs@gmail.com>"
+    "Tong <xtongs@gmail.com>"
   ],
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "webpack"
+  },
   "devDependencies": {
-    "browser-sync": "latest",
-    "gulp": "latest",
-    "gulp-concat": "latest",
-    "gulp-cssmin": "latest",
-    "gulp-sass": "latest",
-    "gulp-autoprefixer": "latest",
-    "gulp-inline-source": "latest",
-    "gulp-plumber": "latest",
-    "gulp-rename": "latest",
-    "gulp-uglify": "latest"
+    "autoprefixer": "^6.7.3",
+    "css-loader": "^0.26.1",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "node-sass": "^4.5.0",
+    "postcss-loader": "^1.3.0",
+    "sass-loader": "^6.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   }
 }
