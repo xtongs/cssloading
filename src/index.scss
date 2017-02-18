@@ -33,7 +33,7 @@
     left: 50%;
     width: 50%;
     height: 50%;
-    transform: translate(0%, 100%) skew($gap, $gap) rotate(0deg);
+    transform: translate3d(0%, 100%, 0) skew($gap, $gap) rotate(0deg);
     transform-origin: left top;
     background-color: inherit;
   }
