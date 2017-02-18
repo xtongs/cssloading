@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
-    "build": "webpack"
+    "build": "NODE_ENV=production webpack -p"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.3",

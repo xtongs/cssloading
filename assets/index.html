@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS loading Demo | Pure CSS Loading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Courier New, Courier, monospace;
+    }
+
+    body * {
+      box-sizing: inherit;
+    }
+
+    #container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      display: inline-block;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+    }
+
+    div[class^="cssloading"] {
+      width: 60px;
+      height: 60px;
+      margin: 10px;
+    }
+
+    p {
+      color: #999;
+    }
+
+    .circle {
+      padding: 0 20px;
+      width: 100%;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-content: center;
+      flex-wrap: wrap;
+    }
+
+    .circle li {
+      width: 100px;
+      padding: 10px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .circle li p {
+      font-size: 12px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>CSS loading Demo</h1>
+    <p>.cssloading-circle</p>
+    <ul class="circle">
+      <li>
+        <div class="cssloading-circle"></div>
+        <p>default</p>
+      </li>
+      <li>
+        <div class="cssloading-circle" style="color:lightgreen"></div>
+        <p>color: lightgreen</p>
+      </li>
+      <li style="background: #eee;">
+        <div class="cssloading-circle" style="background: #eee"></div>
+        <p>background: #eee</p>
+      </li>
+      <li>
+        <div class="cssloading-circle" style="font-size: 10px"></div>
+        <p>font-size: 10px</p>
+      </li>
+      <li>
+        <div class="cssloading-circle" style="animation-duration: 2s"></div>
+        <p>animation-duration: 2s</p>
+      </li>
+    </ul>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+
+</html>

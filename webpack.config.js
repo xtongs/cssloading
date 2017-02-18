@@ -1,16 +1,20 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const extractSass = new ExtractTextPlugin('cssloading.css')
+const extractSass = new ExtractTextPlugin({
+  filename: '../dist/cssloading.css',
+  disable: process.env.NODE_ENV !== 'production'
+})
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './assets/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './assets/'),
     filename: 'bundle.js'
   },
   module: {
     rules: [{
       test: /\.scss$/,
+      exclude: /node_modules/,
       use: extractSass.extract({
         fallback: 'style-loader',
         use: 'css-loader!postcss-loader!sass-loader'
@@ -21,10 +25,10 @@ module.exports = {
     extractSass
   ],
   devServer: {
-    contentBase: path.join(__dirname, '/src/'),
+    contentBase: path.join(__dirname, './assets/'),
     compress: true,
-    noInfo: true,
     watchContentBase: true,
+    noInfo: true,
     host: '0.0.0.0',
     port: 9000
   }

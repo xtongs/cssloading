@@ -1,6 +1,40 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: #333;
-  transform: scale(1);
+@import "base.scss";
+@import "config.scss";
+
+.cssloading-circle {
+  $gap: 20deg;
+  $len: 5px;
+  box-sizing: border-box;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  font-size: $len;
+  color: lightskyblue;
+  background: white;
+  overflow: hidden;
+  animation: rotate $duration infinite linear;
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+  &:before {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-style: solid;
+    border-width: 1em;
+    border-color: currentColor;
+    border-radius: 50%;
+  }
+  &:after {
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(0%, 100%) skew($gap, $gap) rotate(0deg);
+    transform-origin: left top;
+    background-color: inherit;
+  }
 }
