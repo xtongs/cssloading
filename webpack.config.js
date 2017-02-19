@@ -6,9 +6,9 @@ const extractSass = new ExtractTextPlugin({
 })
 
 module.exports = {
-  entry: './assets/index.js',
+  entry: './index.js',
   output: {
-    path: path.resolve(__dirname, './assets/'),
+    path: path.resolve(__dirname, './'),
     filename: 'bundle.js'
   },
   module: {
@@ -25,9 +25,9 @@ module.exports = {
     extractSass
   ],
   devServer: {
-    contentBase: path.join(__dirname, './assets/'),
+    contentBase: path.join(__dirname, './'),
     compress: true,
-    watchContentBase: true,
+    watchContentBase: false,
     noInfo: true,
     host: '0.0.0.0',
     port: 9000
