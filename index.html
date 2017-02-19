@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>CSS loading Demo | Pure CSS Loading</title>
+  <title>Cssloadingg Demo | Pure CSS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="format-detection" content="telephone=no">
   <link rel="stylesheet" href="dist/cssloading.css">
@@ -29,18 +29,27 @@
 
     h1 {
       display: inline-block;
-      width: 100%;
+      margin: 0;
+      padding: 20px 0;
       position: fixed;
       top: 0;
       text-align: center;
-      font-size: 24px;
+      font-size: 20px;
       color: #333;
+      background: linear-gradient(to bottom, white, transparent);
+      z-index: 1;
+    }
+
+    h1 small {
+      display: block;
+      color: #666;
+      font-size: 14px;
     }
 
     h1 a {
-      display: block;
+      display: inline-block;
       color: #999;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     div[class^="cssloading"] {
@@ -81,7 +90,11 @@
 
 <body>
   <div id="container">
-    <h1>CSS loading Demo<a href="//github.com/xtongs/cssloading">Github</a></h1>
+    <h1>
+      Cssloading Demo | Pure CSS
+      <small>Single element & Customizable</small>
+      <a href="//github.com/xtongs/cssloading">Github</a>
+    </h1>
     <p>.cssloading-circle</p>
     <ul class="circle">
       <li>
