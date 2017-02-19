@@ -36,10 +36,14 @@
       color: #333;
     }
 
+    h1 a {
+      display: block;
+      color: #999;
+      font-size: 16px;
+    }
+
     div[class^="cssloading"] {
-      width: 60px;
-      height: 60px;
-      margin: 10px;
+      margin: 10px auto;
     }
 
     p {
@@ -57,7 +61,7 @@
     }
 
     .circle li {
-      width: 100px;
+      width: 120px;
       padding: 10px;
       overflow: hidden;
       text-align: center;
@@ -67,20 +71,24 @@
       font-size: 12px;
       display: block;
     }
+
+    .circle li:nth-of-type(1) div[class^="cssloading"] {
+      margin: 16px auto;
+    }
   </style>
 </head>
 
 <body>
   <div id="container">
-    <h1>CSS loading Demo</h1>
+    <h1>CSS loading Demo<a href="//github.com/xtongs/cssloading">Github</a></h1>
     <p>.cssloading-circle</p>
     <ul class="circle">
       <li>
-        <div class="cssloading-circle"></div>
-        <p>default</p>
+        <div class="cssloading-circle" style="width: 20px; height: 20px;"></div>
+        <p>width: 20px; height: 20px</p>
       </li>
       <li>
-        <div class="cssloading-circle" style="color:lightgreen"></div>
+        <div class="cssloading-circle" style="color: lightgreen"></div>
         <p>color: lightgreen</p>
       </li>
       <li style="background: #eee;">
