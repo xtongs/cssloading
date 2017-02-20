@@ -19,23 +19,20 @@
       box-sizing: inherit;
     }
 
-    #container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    h1 {
-      display: inline-block;
-      margin: 0;
-      padding: 20px 0;
-      position: fixed;
+    header {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
+      height: 100px;
       text-align: center;
+    }
+
+    header h1 {
+      display: inline-block;
+      margin: 0;
+      padding: 20px 0 0;
+      width: 100%;
       font-size: 20px;
       color: #333;
       background: -webkit-linear-gradient(white, rgba(255, 255, 255, 0));
@@ -44,27 +41,38 @@
       z-index: 1;
     }
 
-    h1 small {
+    header small {
       display: block;
       color: #666;
       font-size: 14px;
     }
 
-    h1 a {
+    header a {
       display: inline-block;
       color: #999;
       font-size: 14px;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h2 {
+      color: #666;
+      font-size: 16px;
+      font-weight: normal;
     }
 
     div[class^="cssloading"] {
       margin: 10px auto;
     }
 
-    p {
-      color: #999;
-    }
-
-    .circle {
+    .loadings {
       padding: 0 20px;
       width: 100%;
       list-style: none;
@@ -74,33 +82,34 @@
       flex-wrap: wrap;
     }
 
-    .circle li {
+    .loadings li {
       width: 120px;
       padding: 10px;
       overflow: hidden;
       text-align: center;
     }
 
-    .circle li p {
+    .loadings li p {
+      color: #999;
       font-size: 12px;
       display: block;
     }
 
-    .circle li:nth-of-type(1) div[class^="cssloading"] {
+    .loadings li:nth-of-type(1) div[class^="cssloading"] {
       margin: 16px auto;
     }
   </style>
 </head>
 
 <body>
-  <div id="container">
-    <h1>
-      CSSloading Demo | Pure CSS
-      <small>Single element & Customizable</small>
-      <a href="//github.com/xtongs/cssloading">Github</a>
-    </h1>
-    <p>.cssloading-circle</p>
-    <ul class="circle">
+  <header>
+    <h1>CSSloading Demo | Pure CSS</h1>
+    <small>Single element & Customizable</small>
+    <a href="//github.com/xtongs/cssloading">Github</a>
+  </header>
+  <section>
+    <h2>.cssloading-circle</h2>
+    <ul class="loadings">
       <li>
         <div class="cssloading-circle" style="width: 20px; height: 20px;"></div>
         <p>width: 20px; height: 20px</p>
@@ -122,7 +131,7 @@
         <p>animation-duration: 2s</p>
       </li>
     </ul>
-  </div>
+  </section>
   <script src="bundle.js"></script>
 </body>
 
