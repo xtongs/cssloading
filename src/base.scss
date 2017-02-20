@@ -1,4 +1,7 @@
-@keyframes rotate {
+$line: 2px;
+$duration: 1s;
+
+@keyframes csl-rotate {
   0% {
     transform: rotate(0deg);
   }
