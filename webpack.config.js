@@ -1,18 +1,26 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSass = new ExtractTextPlugin({
-  filename: './dist/cssloading.css',
+  filename: 'cssloading.css',
   disable: process.env.NODE_ENV !== 'production'
 })
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    'cssloading': './src/cssloading.js'
+  },
   output: {
-    path: path.resolve(__dirname, './'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, './dist'),
+    publicPath: 'dist',
+    filename: '[name].js',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [{
+      test: /\.js$/,
+      loader: 'babel-loader',
+      exclude: /node_modules/
+    }, {
       test: /\.scss$/,
       exclude: /node_modules/,
       use: extractSass.extract({
