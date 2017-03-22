@@ -20,7 +20,6 @@ $duration: 1s;
   font-size: $line;
   color: lightskyblue;
   background: white;
-  border-radius: 50%;
   overflow: hidden;
   animation: csl-rotate $duration infinite linear;
   &:before, &:after {

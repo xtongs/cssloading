@@ -1,17 +1,21 @@
-const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const extractSass = new ExtractTextPlugin({
+var env = process.env.NODE_ENV
+var dev = env !== 'production'
+var path = require('path')
+var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var extractSass = new ExtractTextPlugin({
   filename: 'cssloading.css',
-  disable: process.env.NODE_ENV !== 'production'
+  disable: dev
 })
 
 module.exports = {
   entry: {
-    'cssloading': './src/cssloading.js'
+    'cssloading': !dev ? './src/cssloading.js' : ['./client', './src/cssloading.js']
   },
   output: {
-    path: path.join(__dirname, './dist'),
-    publicPath: 'dist',
+    path: !dev ? path.join(__dirname, './dist') : '/',
+    publicPath: !dev ? './dist' : '/',
     filename: '[name].js',
     libraryTarget: 'umd'
   },
@@ -30,14 +34,13 @@ module.exports = {
     }]
   },
   plugins: [
-    extractSass
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, './'),
-    compress: true,
-    watchContentBase: false,
-    noInfo: true,
-    host: '0.0.0.0',
-    port: 9000
-  }
+    extractSass,
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.tpl',
+      inject: true
+    })
+  ]
 }
