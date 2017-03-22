@@ -1,0 +1,68 @@
+$w: 0.1em;
+$h: 0.25em;
+$o: 0.36em;
+$c: 20;
+$duration: 1s;
+
+@keyframes csl-ios {
+  0% {
+
+  }
+  100% {
+
+  }
+}
+
+@mixin bs($times) {
+  $optimes: $times + 7;
+  box-shadow: 0 (-$o) 0 rgb($c * $times,$c * $times,$c * $times), 0 $o 0 rgb($c * $optimes,$c * $optimes,$c * $optimes);
+}
+
+@mixin bso($times) {
+  $optimes: $times - 6;
+  box-shadow: 0 (-$o) 0 rgb($c * $times,$c * $times,$c * $times), 0 $o 0 rgb($c * $optimes,$c * $optimes,$c * $optimes);
+}
+
+.cssloading-ios {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  font-size: 30px;
+  width: 1em;
+  height: 1em;
+  animation: csl-ios $duration steps(12) infinite;
+  & > * {
+    &, &:before, &:after {
+      content: '';
+      box-sizing: inherit;
+      display: block;
+      width: $w;
+      height: $h;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -$h/2;
+      margin-left: -$w/2;
+      border-radius: $w;
+      @include bs(2);
+    }
+    &:before {
+      transform: rotate(-30deg);
+      @include bs(1);
+    }
+    &:after {
+      transform: rotate(30deg);
+      @include bs(3);
+    }
+    &:nth-child(2) {
+      transform: rotate(-90deg);
+      @include bso(11);
+      &:before {
+        @include bso(10);
+      }
+      &:after {
+        @include bso(12);
+      }
+    }
+  }
+}
