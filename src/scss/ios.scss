@@ -1,26 +1,28 @@
-$w: 0.1em;
-$h: 0.25em;
-$o: 0.36em;
-$c: 20;
-$duration: 1s;
+$width: 0.1em;
+$height: 0.25em;
+$offset: 0.36em;
+$multiplier: 18;
+$duration: 83ms;
+$step: 12;
+
+@mixin boxShadow($factor) {
+  $value: $multiplier * $factor + 8;
+  box-shadow: 0 (-$offset) 0 rgb($value, $value, $value);
+}
 
 @keyframes csl-ios {
   0% {
-
+    @include boxShadow(1);
   }
   100% {
-
+    @include boxShadow(12);
   }
 }
 
-@mixin bs($times) {
-  $optimes: $times + 7;
-  box-shadow: 0 (-$o) 0 rgb($c * $times,$c * $times,$c * $times), 0 $o 0 rgb($c * $optimes,$c * $optimes,$c * $optimes);
-}
-
-@mixin bso($times) {
-  $optimes: $times - 6;
-  box-shadow: 0 (-$o) 0 rgb($c * $times,$c * $times,$c * $times), 0 $o 0 rgb($c * $optimes,$c * $optimes,$c * $optimes);
+@mixin ani($delay) {
+  animation: csl-ios ($duration * $step) (-$delay * $duration) infinite;
+  animation-timing-function: inherit;
+  animation-play-state: inherit;
 }
 
 .cssloading-ios {
@@ -30,38 +32,37 @@ $duration: 1s;
   font-size: 30px;
   width: 1em;
   height: 1em;
-  animation: csl-ios $duration steps(12) infinite;
+  animation-timing-function: steps($step, start);
   & > * {
     &, &:before, &:after {
       content: '';
       box-sizing: inherit;
       display: block;
-      width: $w;
-      height: $h;
+      width: $width;
+      height: $height;
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -$h/2;
-      margin-left: -$w/2;
-      border-radius: $w;
-      @include bs(2);
+      margin-top: -$height/2;
+      margin-left: -$width/2;
+      border-radius: $width;
     }
     &:before {
-      transform: rotate(-30deg);
-      @include bs(1);
+      transform: rotate(30deg);
     }
     &:after {
-      transform: rotate(30deg);
-      @include bs(3);
+      transform: rotate(60deg);
     }
-    &:nth-child(2) {
-      transform: rotate(-90deg);
-      @include bso(11);
-      &:before {
-        @include bso(10);
-      }
-      &:after {
-        @include bso(12);
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        transform: rotate(($i - 1) * 90deg);
+        @include ani(15 - $i * 3);
+        &:before {
+          @include ani(14 - $i * 3);
+        }
+        &:after {
+          @include ani(13 - $i * 3);
+        }
       }
     }
   }

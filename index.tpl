@@ -83,7 +83,7 @@
     }
 
     .loadings li {
-      width: 120px;
+      width: 130px;
       padding: 10px;
       overflow: hidden;
       text-align: center;
@@ -120,8 +120,8 @@
         <p>background: #eee</p>
       </li>
       <li>
-        <div class="cssloading-circle" style="font-size: 1px"></div>
-        <p>font-size: 1px</p>
+        <div class="cssloading-circle" style="font-size: 5px"></div>
+        <p>font-size: 5px</p>
       </li>
       <li>
         <div class="cssloading-circle" style="animation-duration: 2s"></div>
@@ -131,8 +131,16 @@
     <h2>.cssloading-ios</h2>
     <ul class="loadings">
       <li>
-        <div class="cssloading-ios" style=""><i></i><i></i></div>
-        <p>default</p>
+        <div class="cssloading-ios" style="font-size: 20px"><i></i><i></i><i></i><i></i></div>
+        <p>font-size: 20px</p>
+      </li>
+      <li style="background: #eee">
+        <div class="cssloading-ios" style="background: #eee"><i></i><i></i><i></i><i></i></div>
+        <p>background: #eee</p>
+      </li>
+      <li>
+        <div class="cssloading-ios" style="animation-play-state: paused"><i></i><i></i><i></i><i></i></div>
+        <p>animation-play-state: paused</p>
       </li>
     </ul>
   </section>
